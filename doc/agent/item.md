@@ -18,9 +18,9 @@
   * swap free (KB)
   * swap used percent (n% * 10000)
 * load (read '/proc/loadavg')
-  * avg1
-  * avg5
-  * avg15
+  * avg1 (n * 100)
+  * avg5 (n * 100)
+  * avg15 (n * 100)
 * net (read '/sys/class/net/' and '/proc/net/dev')
   * receive rate (bytes per second)
   * receive sum (bytes)
@@ -46,5 +46,8 @@
   * username
   * remote host
   * auth method
+* file modify or delete (Linux inotify)
+  * path
+  * event (create, modify, delete, move)
 * database query (TODO)
 * network latency (TODO)
