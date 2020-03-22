@@ -1,14 +1,14 @@
 - [常用数据类型](#常用数据类型)
 - [数据表](#数据表)
-  - [agent](#agent)
-  - [cpuinfo](#cpuinfo)
-  - [meminfo](#meminfo)
-  - [loadinfo](#loadinfo)
-  - [netinfo](#netinfo)
-  - [diskinfo](#diskinfo)
-  - [mountinfo](#mountinfo)
-  - [logininfo](#logininfo)
-  - [filemdinfo](#filemdinfo)
+  - [agents](#agents)
+  - [cpuinfos](#cpuinfos)
+  - [meminfos](#meminfos)
+  - [loadinfos](#loadinfos)
+  - [netinfos](#netinfos)
+  - [diskinfos](#diskinfos)
+  - [mountinfos](#mountinfos)
+  - [logininfos](#logininfos)
+  - [filemdinfos](#filemdinfos)
 
 ## 常用数据类型
 [postgresql dataType](https://www.postgresql.org/docs/current/datatype.html)
@@ -27,7 +27,7 @@
 
 ## 数据表
 
-### agent
+### agents
 | 字段       | 类型         | 备注                                   |
 | ---------- | ------------ | -------------------------------------- |
 | id         | SERIAL       | 自增主键                               |
@@ -35,13 +35,13 @@
 | distro     | VARCHAR(64)  | 发行版名称 (64 from `<sys/utsname.h>`) |
 | kernel     | VARCHAR(64)  | 内核版本 (64 from `<sys/utsname.h>`)   |
 | hostname   | VARCHAR(255) | 主机名 (255 from `man 7 hostname`)     |
-| cpu model  | VARCHAR(255) | cpu型号                                |
-| cpu cores  | SMALLINT     | cpu核心数                              |
+| cpu_model  | VARCHAR(255) | cpu型号                                |
+| cpu_cores  | SMALLINT     | cpu核心数                              |
 | deleted    | BOOLEAN      | 逻辑删除标识                           |
 | created_at | TIMESTAMPTZ  | 创建时间                               |
 | updated_at | TIMESTAMPTZ  | 更新时间                               |
 
-### cpuinfo
+### cpuinfos
 | 字段         | 类型        | 备注                |
 | ------------ | ----------- | ------------------- |
 | id           | BIGSERIAL   | 自增主键            |
@@ -49,7 +49,7 @@
 | used_percent | SMALLINT    | 使用率 (n% * 10000) |
 | time         | TIMESTAMPTZ | 数据采集时间        |
 
-### meminfo
+### meminfos
 | 字段              | 类型        | 备注                        |
 | ----------------- | ----------- | --------------------------- |
 | id                | BIGSERIAL   | 自增主键                    |
@@ -66,7 +66,7 @@
 | swap_used_percent | SMALLINT    | 交换空间使用率 (n% * 10000) |
 | time              | TIMESTAMPTZ | 数据采集时间                |
 
-### loadinfo
+### loadinfos
 | 字段     | 类型        | 备注                       |
 | -------- | ----------- | -------------------------- |
 | id       | BIGSERIAL   | 自增主键                   |
@@ -76,7 +76,7 @@
 | avg15    | SMALLINT    | 十五分钟平均负载 (n * 100) |
 | time     | TIMESTAMPTZ | 数据采集时间               |
 
-### netinfo
+### netinfos
 | 字段          | 类型        | 备注                        |
 | ------------- | ----------- | --------------------------- |
 | id            | BIGSERIAL   | 自增主键                    |
@@ -87,18 +87,18 @@
 | transmit_sum  | BIGINT      | 上传量 (bytes)              |
 | time          | TIMESTAMPTZ | 数据采集时间                |
 
-### diskinfo
+### diskinfos
 | 字段       | 类型        | 备注             |
 | ---------- | ----------- | ---------------- |
 | id         | BIGSERIAL   | 自增主键         |
 | agent_id   | INTEGER     | 外键             |
-| read req   | INTEGER     | 每秒读取请求次数 |
-| write req  | INTEGER     | 每秒写入请求次数 |
-| read size  | BIGINT      | 读取总量 (KB)    |
-| write size | BIGINT      | 写入总量 (KB)    |
+| read_req   | INTEGER     | 每秒读取请求次数 |
+| write_req  | INTEGER     | 每秒写入请求次数 |
+| read_size  | BIGINT      | 读取总量 (KB)    |
+| write_size | BIGINT      | 写入总量 (KB)    |
 | time       | TIMESTAMPTZ | 数据采集时间     |
 
-### mountinfo
+### mountinfos
 | 字段               | 类型          | 备注                                      |
 | ------------------ | ------------- | ----------------------------------------- |
 | id                 | BIGSERIAL     | 自增主键                                  |
@@ -115,7 +115,7 @@
 | used_nodes_percent | SMALLINT      | node使用率 (n% * 10000)                   |
 | time               | TIMESTAMPTZ   | 数据采集时间                              |
 
-### logininfo
+### logininfos
 | 字段        | 类型        | 备注                             |
 | ----------- | ----------- | -------------------------------- |
 | id          | BIGSERIAL   | 自增主键                         |
@@ -125,7 +125,7 @@
 | auth_method | TEXT        | 使用的认证方式                   |
 | time        | TIMESTAMPTZ | 数据采集时间                     |
 
-### filemdinfo
+### filemdinfos
 | 字段     | 类型          | 备注                                    |
 | -------- | ------------- | --------------------------------------- |
 | id       | BIGSERIAL     | 自增主键                                |
