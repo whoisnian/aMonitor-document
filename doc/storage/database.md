@@ -7,7 +7,7 @@
   - [netinfos](#netinfos)
   - [diskinfos](#diskinfos)
   - [mountinfos](#mountinfos)
-  - [logininfos](#logininfos)
+  - [sshdinfos](#sshdinfos)
   - [filemdinfos](#filemdinfos)
 
 ## 常用数据类型
@@ -115,7 +115,7 @@
 | used_nodes_percent | SMALLINT      | node使用率 (n% * 10000)                   |
 | time               | TIMESTAMPTZ   | 数据采集时间                              |
 
-### logininfos
+### sshdinfos
 | 字段        | 类型        | 备注                             |
 | ----------- | ----------- | -------------------------------- |
 | id          | BIGSERIAL   | 自增主键                         |
