@@ -16,16 +16,14 @@
 | Category  | string  | 数据类型 |
 | MetaData  | object  | 元数据   |
 | Timestamp | integer | 时间戳   |
-| Token     | string  | 身份标识 |
 
 ```json
 {
-	"Category": "cpuInfo",
-	"MetaData": {
+  "Category": "cpuInfo",
+  "MetaData": {
     "UsedPCT": 950
   },
-	"Timestamp": 1583331658,
-	"Token": "qwertyuiop"
+  "Timestamp": 1583331658
 }
 ```
 
@@ -33,8 +31,8 @@
 POST http://127.0.0.1:8001?category=sshdInfo
 ```json
 {
-	"Username": "root",
-	"RemoteHost": "127.0.0.1",
-	"AuthInfo": "password"
+  "Username": "root",
+  "RemoteHost": "127.0.0.1",
+  "AuthInfo": "password"
 }
 ```
