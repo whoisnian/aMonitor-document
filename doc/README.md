@@ -10,3 +10,11 @@
 | refactor | 系统结构重构 |
 | test     | 增加测试     |
 | chore    | 杂务         |
+
+## lines of code
+go get -u github.com/boyter/scc
+
+* aMonitor-agent:  
+  `scc .`
+* aMonitor-storage:  
+  `scc --exclude-dir package-lock.json .`
