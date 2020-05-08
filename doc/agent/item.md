@@ -24,8 +24,10 @@
 * net (read '/sys/class/net/' and '/proc/net/dev')
   * receive rate (bytes per second)
   * receive sum (bytes)
+  * receive packets per second
   * transmit rate (bytes per second)
   * transmit sum (bytes)
+  * transmit packets per second
 * disk R/W (read '/proc/diskstats' and https://github.com/torvalds/linux/blob/master/Documentation/ABI/testing/procfs-diskstats)
   * read req per second
   * write req per second
