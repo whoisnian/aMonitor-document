@@ -31,6 +31,8 @@
 * disk R/W (read '/proc/diskstats' and https://github.com/torvalds/linux/blob/master/Documentation/ABI/testing/procfs-diskstats)
   * read req per second
   * write req per second
+  * read rate (bytes per second)
+  * write rate (bytes per second)
   * read size (KB)
   * write size (KB)
 * mounts usage (read '/proc/mounts' and syscall 'statfs')
