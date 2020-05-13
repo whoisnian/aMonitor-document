@@ -18,3 +18,5 @@ go get -u github.com/boyter/scc
   `scc .`
 * aMonitor-storage:  
   `scc --exclude-dir package-lock.json .`
+* aMonitor-board:  
+  `scc --exclude-dir public,src/assets,package-lock.json .`
