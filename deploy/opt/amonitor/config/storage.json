@@ -1,0 +1,31 @@
+{
+  "postgresql": {
+    "host": "172.18.0.20",
+    "port": 5432,
+    "dbname": "amonitor",
+    "user": "postgres",
+    "pass": "password",
+    "max": 10
+  },
+  "redis": {
+    "url": "redis://172.18.0.10:6379"
+  },
+  "server": {
+    "host": "127.0.0.1",
+    "port": 3000
+  },
+  "smtp": {
+    "host": "smtp.example.com",
+    "port": 465,
+    "secure": true,
+    "auth": {
+      "user": "username",
+      "pass": "password"
+    },
+    "from": "no-reply@example.com"
+  },
+  "prefix": "http://127.0.0.1",
+  "secret": "this_is_a_secret_key_of_32_bytes",
+  "debug": false,
+  "pidPath": "../tmp/pids/aMonitor-storage.pid"
+}

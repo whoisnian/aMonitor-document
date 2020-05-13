@@ -1,0 +1,14 @@
+{
+  "StroageAddr": "127.0.0.1",
+  "SourceAddrs": [],
+  "ListenAddr": "127.0.0.1:8001",
+  "Interval": {
+    "CPU": 10,
+    "MEM": 10,
+    "LOAD": 10,
+    "NET": 10,
+    "MOUNTS": 10,
+    "DISK": 10
+  },
+  "Token": ""
+}

@@ -1,0 +1,11 @@
+[Unit]
+Description=aMonitor agent.
+
+[Service]
+Type=simple
+ExecStart=/opt/amonitor/agent/aMonitor-agent -config /opt/amonitor/config/agent.json
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

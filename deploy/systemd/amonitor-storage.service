@@ -1,0 +1,13 @@
+[Unit]
+Description=aMonitor storage backend.
+
+[Service]
+Type=simple
+Environment="NODE_ENV=production"
+Environment="AMONITOR_STORAGE_CONFIG=/opt/amonitor/config/storage.json"
+ExecStart=/root/.nvm/versions/node/v12.16.3/bin/node /opt/amonitor/storage/index.js
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
