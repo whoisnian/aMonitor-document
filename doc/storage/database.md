@@ -174,7 +174,8 @@
 | addition   | VARCHAR(4096) | 目标额外信息            |
 | event      | VARCHAR(255)  | 触发事件                |
 | threshold  | INTEGER       | 阈值                    |
-| interval   | INTEGER       | 聚合间隔 (second)       |
+| interval   | INTEGER       | 聚合间隔 (m seconds)    |
+| silent     | INTEGER       | 静默时间 (m seconds)    |
 | level      | VARCHAR(64)   | 等级                    |
 | group_id   | INTEGER       | 所属规则组 (外键)       |
 | deleted    | BOOLEAN       | 逻辑删除标识            |
