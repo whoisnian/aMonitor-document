@@ -86,26 +86,30 @@
 | time     | TIMESTAMPTZ | 数据采集时间               |
 
 ### netinfos
-| 字段          | 类型        | 备注                        |
-| ------------- | ----------- | --------------------------- |
-| id            | BIGSERIAL   | 自增主键                    |
-| agent_id      | INTEGER     | 外键                        |
-| receive_rate  | INTEGER     | 下载速度 (bytes per second) |
-| receive_sum   | BIGINT      | 下载量 (bytes)              |
-| transmit_rate | INTEGER     | 上传速度 (bytes per second) |
-| transmit_sum  | BIGINT      | 上传量 (bytes)              |
-| time          | TIMESTAMPTZ | 数据采集时间                |
+| 字段             | 类型        | 备注                        |
+| ---------------- | ----------- | --------------------------- |
+| id               | BIGSERIAL   | 自增主键                    |
+| agent_id         | INTEGER     | 外键                        |
+| receive_rate     | INTEGER     | 下载速度 (bytes per second) |
+| receive_sum      | BIGINT      | 下载量 (bytes)              |
+| receive_packets  | INTEGER     | 下载数据包数量              |
+| transmit_rate    | INTEGER     | 上传速度 (bytes per second) |
+| transmit_sum     | BIGINT      | 上传量 (bytes)              |
+| transmit_packets | INTEGER     | 上传数据包数量              |
+| time             | TIMESTAMPTZ | 数据采集时间                |
 
 ### diskinfos
-| 字段       | 类型        | 备注             |
-| ---------- | ----------- | ---------------- |
-| id         | BIGSERIAL   | 自增主键         |
-| agent_id   | INTEGER     | 外键             |
-| read_req   | INTEGER     | 每秒读取请求次数 |
-| write_req  | INTEGER     | 每秒写入请求次数 |
-| read_size  | BIGINT      | 读取总量 (KB)    |
-| write_size | BIGINT      | 写入总量 (KB)    |
-| time       | TIMESTAMPTZ | 数据采集时间     |
+| 字段       | 类型        | 备注                        |
+| ---------- | ----------- | --------------------------- |
+| id         | BIGSERIAL   | 自增主键                    |
+| agent_id   | INTEGER     | 外键                        |
+| read_req   | INTEGER     | 每秒读取请求次数            |
+| write_req  | INTEGER     | 每秒写入请求次数            |
+| read_rate  | INTEGER     | 读取速度 (bytes per second) |
+| write_rate | INTEGER     | 写入速度 (bytes per second) |
+| read_size  | BIGINT      | 读取总量 (KB)               |
+| write_size | BIGINT      | 写入总量 (KB)               |
+| time       | TIMESTAMPTZ | 数据采集时间                |
 
 ### mountinfos
 | 字段               | 类型          | 备注                                      |
