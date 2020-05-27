@@ -50,7 +50,18 @@
 
 ## 摘要
 ### 中文摘要
+随着计算机和互联网技术的飞速发展，移动网络的普及，越来越多的企业开始加强自身信息化建设，紧跟信息时代潮流，依托各个云服务商搭建属于自己的云服务。在云服务领域中，Linux服务器的地位不可动摇，而关于Linux服务器的运维管理，一套切合自身实际需要的监控告警系统对于企业实现资源调度、故障检测及分析预测等可以提供强有力的依据，对企业服务质量的提高有着极为重要的作用。  
+本文的目的是设计并实现一套用于Linux服务器的监控告警系统，其主要功能模块包括数据采集，数据存储，监控告警，和前端可视化。数据采集模块将采集到的监控数据通过WebSocket上报到数据存储模块，数据存储模块校验后将数据存入数据库，同时发送一份数据供监控告警模块进行阈值检查，触发告警后根据推送渠道发送告警信息，管理员与前端可视化模块进行直接交互，在控制台设置监控规则和推送目标，也可指定主机查看历史监控数据分析变化趋势，前端可视化模块所调用的接口均由数据存储模块提供。  
+本系统利用Golang原生的并发支持使得数据采集模块能够提供极细粒度下的监控数据，借助Node.js的事件驱动和非阻塞异步I/O赋予了数据存储模块对于大量并发连接的承载能力，时序数据库为数据的压缩存储、聚合查询等提供了性能保证，成熟的前端框架为用户提供了友好的交互体验。最终合理的模块设计配合Nginx负载均衡使得完整的监控告警系统拥有了较强的横向扩展能力和容灾能力，完全具备应用于线上环境的潜力。
+
+关键词：Linux服务器，监控告警，时序数据库，负载均衡
+
 ### 英文摘要
+With the rapid development of computer technology and the popularization of mobile networks, more and more enterprises have begun to strengthen their own information construction to keep up with the trend of the information age. These enterprises rely on various cloud service providers to build their own services. Linux servers have an unshakable position in the field of cloud services. With regard to the maintenance management of Linux servers, a suitable monitoring and alarm system can provide a strong basis for enterprises to implement resource scheduling, fault detection, analysis and prediction.   
+The purpose of this thesis is to design and implement a monitoring and alarm system for Linux servers. There are several main functional modules in this system. The data collection module sends collected data to the data storage module through WebSocket. Then all data is stored into the database by the data storage module after verification. At the same time, a copy of the data is sent to the monitoring and alarm module for threshold checking. After triggering the alarm rule, alarm messages are sent according to the push channel. The administrator sets monitoring rules and push channels through the front-end visualization module, and can also view one host's historical monitoring data to analyze its trend.  
+This system uses Golang's native concurrency support to enable the data collection module to provide extremely fine-grained monitoring data. With the event-driven and non-blocking asynchronous I/O of Node.js, the data storage module is endowed with a large number of concurrent connections. Time series database provides performance guarantees for data compression storage, aggregate query, etc. The mature React framework provides users with a friendly interactive experience. The reasonable module design and Nginx load balancing make the complete monitoring and alarm system have strong horizontal expansion capabilities and disaster tolerance capabilities. This system has full potential to be applied in the production environment.
+
+Keywords: Linux server, monitoring alarm, time series database, load balancing
 
 ## 1. 绪论
 
