@@ -2,7 +2,7 @@
 - [摘要](#摘要)
   - [中文摘要](#中文摘要)
   - [英文摘要](#英文摘要)
-- [1. 绪论](#1-绪论)
+- [1 绪论](#1-绪论)
   - [1.1 课题研究的背景和意义](#11-课题研究的背景和意义)
   - [1.2 国内外研究现状](#12-国内外研究现状)
   - [1.3 主要研究内容](#13-主要研究内容)
@@ -46,30 +46,30 @@
   - [6.4 历史数据查询测试](#64-历史数据查询测试)
   - [6.5 本章小结](#65-本章小结)
 - [7. 总结与展望](#7-总结与展望)
-- [致谢](#致谢)
 - [参考文献](#参考文献)
+- [致谢](#致谢)
 
 ## 摘要
 ### 中文摘要
-随着计算机和互联网技术的飞速发展，移动网络的普及，越来越多的企业开始加强自身信息化建设，紧跟信息时代潮流，依托各个云服务商搭建属于自己的云服务。在云服务领域中，Linux服务器的地位不可动摇，而关于Linux服务器的运维管理，一套切合自身实际需要的监控告警系统对于企业实现资源调度、故障检测及分析预测等可以提供强有力的依据，对企业服务质量的提高有着极为重要的作用。  
+随着互联网技术的飞速发展和移动终端的大规模普及，越来越多的企业开始加强自身信息化建设，紧跟信息时代潮流，依托各个云服务商搭建属于自己的云服务。在云服务领域中，Linux服务器的地位不可动摇，而关于Linux服务器的运维管理，一套切合自身实际需要的监控告警系统对于企业实现资源调度、故障检测及分析预测等可以提供强有力的依据，对企业服务质量的提高有着极为重要的作用。  
 本文的目的是设计并实现一套用于Linux服务器的监控告警系统，其主要功能模块包括数据采集，数据存储，监控告警，和前端可视化。数据采集模块将采集到的监控数据通过WebSocket上报到数据存储模块，数据存储模块校验后将数据存入数据库，同时发送一份数据供监控告警模块进行阈值检查，触发告警后根据推送渠道发送告警信息，管理员与前端可视化模块进行直接交互，在控制台设置监控规则和推送目标，也可指定主机查看历史监控数据分析变化趋势，前端可视化模块所调用的接口均由数据存储模块提供。  
-本系统利用Golang原生的并发支持使得数据采集模块能够提供极细粒度下的监控数据，借助Node.js的事件驱动和非阻塞异步I/O赋予了数据存储模块对于大量并发连接的承载能力，时序数据库为数据的压缩存储、聚合查询等提供了性能保证，成熟的前端框架为用户提供了友好的交互体验。最终合理的模块设计配合Nginx负载均衡使得完整的监控告警系统拥有了较强的横向扩展能力和容灾能力，完全具备应用于线上环境的潜力。
+本系统利用Golang原生的并发支持使得数据采集模块能够提供极细粒度下的监控数据，借助Node.js的事件驱动和非阻塞异步I/O赋予了数据存储模块对于海量并发连接的承载能力，时序数据库为数据的压缩存储、聚合查询等提供了性能保证，成熟的React前端框架为用户提供了友好的交互体验。最终合理的模块设计配合Nginx负载均衡使得完整的监控告警系统拥有了较强的横向扩展能力和容灾能力，完全具备应用于线上环境的潜力。
 
-关键词：Linux服务器，监控告警，时序数据库，负载均衡
+关键词：Linux服务器，监控告警，负载均衡，时序数据库
 
 ### 英文摘要
-With the rapid development of computer technology and the popularization of mobile networks, more and more enterprises have begun to strengthen their own information construction to keep up with the trend of the information age. These enterprises rely on various cloud service providers to build their own services. Linux servers have an unshakable position in the field of cloud services. With regard to the maintenance management of Linux servers, a suitable monitoring and alarm system can provide a strong basis for enterprises to implement resource scheduling, fault detection, analysis and prediction.   
-The purpose of this thesis is to design and implement a monitoring and alarm system for Linux servers. There are several main functional modules in this system. The data collection module sends collected data to the data storage module through WebSocket. Then all data is stored into the database by the data storage module after verification. At the same time, a copy of the data is sent to the monitoring and alarm module for threshold checking. After triggering the alarm rule, alarm messages are sent according to the push channel. The administrator sets monitoring rules and push channels through the front-end visualization module, and can also view one host's historical monitoring data to analyze its trend.  
-This system uses Golang's native concurrency support to enable the data collection module to provide extremely fine-grained monitoring data. With the event-driven and non-blocking asynchronous I/O of Node.js, the data storage module is endowed with a large number of concurrent connections. Time series database provides performance guarantees for data compression storage, aggregate query, etc. The mature React framework provides users with a friendly interactive experience. The reasonable module design and Nginx load balancing make the complete monitoring and alarm system have strong horizontal expansion capabilities and disaster tolerance capabilities. This system has full potential to be applied in the production environment.
+With the rapid development of Internet technology and the popularization of mobile phones, more and more enterprises have begun to strengthen their own information construction to keep up with the trend of the information age. These enterprises rely on various cloud service providers to build their own services. Linux servers have an unshakable position in the field of cloud services. With regard to the maintenance management of Linux servers, a suitable monitoring and alarm system can provide a strong basis for enterprises to implement resource scheduling, fault detection, analysis and prediction.  
+The purpose of this thesis is to design and implement a monitoring and alarm system for Linux servers. There are several main functional modules in this system. The data collection module sends collected data to the data storage module through WebSocket. Then all data is stored into the database by the data storage module after verification. At the same time, a copy of the data is forwarded to the monitoring and alarm module for threshold checking. After triggering the alarm rule, alarm messages are sent according to the push channel. The administrator directly interacts with the front-end visualization module, can set monitoring rules and push channels on the console, and can also view the historical monitoring data of any host to analyze the trend. The interfaces called by the front-end visualization module are all provided by the data storage module.  
+This system uses Golang's native concurrency support to enable the data collection module to provide extremely fine-grained monitoring data. With the event-driven and non-blocking asynchronous I/O of Node.js, the data storage module is endowed with a large number of concurrent connections. Time series database provides performance guarantees for data compression storage, aggregate query, etc. The mature React framework provides users with a friendly interactive experience. The logical module design and Nginx load balancing make the monitoring and alarm system have strong horizontal expansion capabilities and disaster tolerance capabilities. This system has full potential to be applied in the production environment.
 
-Keywords: Linux server, monitoring alarm, time series database, load balancing
+Keywords: Linux server, monitoring and alarm, load balancing time series database
 
-## 1. 绪论
+## 1 绪论
 
 ### 1.1 课题研究的背景和意义
-随着计算机和互联网技术的飞速发展，移动网络的普及，有越来越多的企业开始加强自身信息化建设，紧跟信息时代潮流。作为信息化背后的服务支撑，服务器的稳定性与可靠性要求越来越高，这就给运维人员的工作带来了不小的挑战。分布式计算、网格计算以及虚拟技术的不断发展和成熟，使得云计算孕育而生，云服务成为当今主流，企业能够结合自身实际需求向各个云服务商定制各类资源或相关服务，服务的分散使得服务器的维护管理变得更加困难。  
-通常情况下，各云服务商针对自身服务器会提供有部分监控功能，然而其大多仅局限于部分硬件指标，难以进行灵活扩展，企业很难结合自身应用进行监控项的定制；除此之外，各云服务商的监控服务也不尽相同，直接混用会使得企业内部的通知告警杂乱无章，影响异常发生时服务器故障的定位与排查。除了云服务商提供的监控服务以外，虽然Linux系统本身也提供有各类性能监控工具[^1]，但是其多用于实时查看系统状态，如果想要更进一步对服务器的历史数据进行分析，或是对服务器集群进行批量监控，设置告警阈值，这些性能监控工具往往无法满足运维管理的需要。  
-因此，一套切合自身实际需要的监控告警系统对于企业实现资源调度、故障检测及分析预测等可以提供强有力的依据，对企业服务质量的提高有着非常重要的作用。运维人员可以通过该系统对服务器上重要的资源进行监控，发现服务器存在的问题及存在问题的具体位置，在服务发生故障时能及时收到报警信息，可以在最短的时间内对系统进行调整恢复，并利用监控得到的历史数据分析企业应用的性能瓶颈，为企业服务的深入优化提供可靠的依据。
+随着互联网技术的飞速发展，移动终端的大规模普及，有越来越多的企业开始加强自身信息化建设，紧跟信息时代潮流。作为信息化背后的服务支撑，服务器的稳定性与可靠性要求越来越高，这就给运维人员的工作带来了不小的挑战。分布式计算、并行计算以及虚拟化技术的逐渐成熟使得云服务成为当今主流，企业能够结合自身实际需求向各个云服务商定制各类资源或相关服务，服务的分散进一步使得服务器的维护管理变得困难。  
+通常情况下，各云服务商针对自身服务器会提供有部分监控功能，然而其大多仅局限于部分硬件指标，难以进行灵活扩展，企业也很难结合自身应用进行监控项的定制；除此之外，各云服务商的监控服务也不尽相同，直接混用会使得企业内部的通知告警杂乱无章，影响异常发生时服务器故障的快速定位与排查。除了云服务商提供的监控服务以外，虽然Linux系统本身也提供有各类性能监控工具[^1]，但是其多用于实时查看系统状态，如果想要更进一步对服务器的历史数据进行分析，或是对服务器集群进行批量监控，设置告警阈值，这些性能监控工具往往无法满足运维管理的需要。  
+因此，一套切合自身实际需要的监控告警系统对于企业优化资源调度、故障及时告警及提高服务质量有着十分重要的作用。运维人员可以通过该系统对服务器上重要的资源指标进行监控，在服务器发生故障时能够及时收到告警信息，可以在短时间内定位故障具体位置以便进行调整恢复，并利用监控系统收集到的历史数据分析服务器的性能瓶颈，为企业服务的深度优化提供可靠依据。
 
 ### 1.2 国内外研究现状
 云服务的迅猛发展使得云服务中的资源运行及使用情况受到高度关注，云服务器监控的研究逐渐成为国内外学者及公司研究的热点。  
@@ -595,8 +595,6 @@ Docker中TimescaleDB时序数据库的数据存储目录为/var/lib/postgresql�
 
 由于开发时间受限，监控告警系统中还存在许多可以进一步完善的地方，如数据监控模块还可以针对各类数据库的运行数据提供监控插件；数据存储与处理模块可以将消息发送功能独立出去，使用专门的消息队列进行解耦，方便增加失败重发，消息等级一类的高级消息特性；前端可视化模块增加实时数据功能，自动从后端请求最新数据并保持动态更新；部署过程中不再使用Nginx作为前端，自定义一个调度中心代替Nginx，数据采集端配置由调度中心动态生成，根据实际网络情况分配最优存储端进行直连，均衡分配所有外部访问请求等。如果有充足的时间进行改进，以上的这些遗憾都将被补全，系统设计阶段打下的良好基础为功能扩展留下了无限的可能。
 
-## 致谢
-
 ## 参考文献
 [^1]: 张慧嫱,程华.Linux性能监测工具测评研究[J].计算机技术与发展,2018,28(09):88-93.
 [^2]: K.R.Jackson, L.Ramakrishnan, K.Murki, et al. Performance Analysis of High Performance Computing Applications on the Amazon Web Services Cloud[C].In: 2010 IEEE Second International Conference, USA:Cloud Com, 2010,159-168
@@ -623,3 +621,5 @@ Docker中TimescaleDB时序数据库的数据存储目录为/var/lib/postgresql�
 [^23]: 陈伟颖,李艳平,翟玥.基于goroutine的web并发编程的研究与应用[J].电脑知识与技术,2015,11(33):52-54.
 [^24]: 乔静,屈志强,罗晨.Linux中PAM验证体系分析[J].电脑知识与技术,2010,6(24):6878-6880.
 [^25]: 刘斌. 基于Linux的文件实时备份系统设计与实现[D].华北电力大学,2014.
+
+## 致谢
